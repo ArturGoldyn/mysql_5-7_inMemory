@@ -22,4 +22,10 @@ RUN { \
 # don't reverse lookup hostnames, they are usually another container
 	&& echo '[mysqld]\nskip-host-cache\nskip-name-resolve' > /etc/mysql/conf.d/docker.cnf
 
+VOLUME /var/lib/mysql
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+EXPOSE 3306
+
 CMD ["mysqld"]
